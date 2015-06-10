@@ -3,8 +3,8 @@
 Flexible Grid System is a Responsive CSS Framework
 
 ##Documentation
-- [English](https://github.com/flexiblegs/docs/tree/master/en/) (Preparing)
-- [Turkish](https://github.com/flexiblegs/docs/tree/master/tr/) (Preparing)
+- [English](https://github.com/flexiblegs/flexiblegs-docs/tree/master/en/) (Preparing)
+- [Turkish](https://github.com/flexiblegs/flexiblegs-docs/tree/master/tr/) (Preparing)
 
 ##License
 - Flexible Grid System is licensed under the MIT license.
