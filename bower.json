@@ -1,0 +1,28 @@
+{
+  "name": "flexiblegs-scss-plus",
+  "version": "4.0.0",
+  "homepage": "http://flexible.gs",
+  "authors": [
+    "@dnomak"
+  ],
+  "description": "Flexible Grid System 4 Scss Plus",
+  "main": "flexiblegs.scss",
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "grid",
+    "responsive",
+    "framework",
+    "flexible",
+    "flexbox"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "LICENCE.md",
+    "README.md"
+  ]
+}

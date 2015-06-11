@@ -1,0 +1,222 @@
+﻿// Flexible Grid System 4 | Scss Plus | MIT License | flexible.gs
+
+// wrap
+// @include wrap;
+// @include wrap(col);
+
+@mixin wrap($col: null) {
+  @if $col == null {
+    display: block;
+    font-size: 0;
+    text-align: center;
+    > * {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      min-height: 1px;
+      font-size: 1rem;
+      vertical-align: top;
+    }
+  }
+  @else {
+    > * {
+      @if $col == auto {
+        width: auto;
+      }
+      @else {
+        width: 100% / $col;
+      }
+    }
+  }
+}
+
+// flexbox
+// @include flexbox;
+
+@mixin flexbox() {
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+// col
+// @include col(col,row);
+
+@mixin col($col: null, $row: null) {
+  @if $col == hidden {
+    display: none;
+  }
+  @else if $col == not-hidden {
+    display: inline-block;
+  }
+  @else {
+    width: 100% / $row * $col;
+  }
+}
+
+// gutter
+// @include gutter(gutter,out);
+
+@mixin gutter($gutter: null, $out: null) {
+  @if $gutter {
+    margin-left: -#{$gutter};
+    margin-right: -#{$gutter};
+    > * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-left: #{$gutter};
+      padding-right: #{$gutter};
+    }
+  }
+  @if $out {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+// align
+// @include align(align);
+
+@mixin align($align: null) {
+  @if $align == top {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    > * {
+      vertical-align: top;
+    }
+  }
+  @else if $align == middle {
+    -webkit-align-items: center;
+    align-items: center;
+    > * {
+      vertical-align: middle;
+    }
+  }
+  @else if $align == bottom {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    > * {
+      vertical-align: bottom;
+    }
+  }
+  @else if $align == between {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-content: space-between;
+    align-content: space-between;
+  }
+  @else if $align == around {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-content: space-around;
+    align-content: space-around;
+  }
+  @else if $align == baseline {
+    -webkit-align-items: baseline;
+    align-items: baseline;
+  }
+  @else if $align == center {
+    -webkit-justify-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  @else if $align == left {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  @else if $align == right {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+  }
+  @else if $align == first {
+    -webkit-box-ordinal-group: -1;
+    -moz-box-ordinal-group: -1;
+    -ms-flex-order: -1;
+    -webkit-order: -1;
+    order: -1;
+  }
+  @else if $align == not-first {
+    -webkit-box-ordinal-group: 0;
+    -moz-box-ordinal-group: 0;
+    -ms-flex-order: 0;
+    -webkit-order: 0;
+    order: 0;
+  }
+  @else if $align == last {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+  }
+  @else if $align == not-last {
+    -webkit-box-ordinal-group: 0;
+    -moz-box-ordinal-group: 0;
+    -ms-flex-order: 0;
+    -webkit-order: 0;
+    order: 0;
+  }
+  @else if $align == reverse {
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -webkit-flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+    flex-wrap: wrap-reverse;
+  }
+  @else if $align == not-reverse {
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+}
+
+// breakpoints
+// @include breakpoint(breakpoint) {
+//
+// }
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (max-width: 667px) {
+      @content;
+    }
+  }
+  @if $breakpoint == xs {
+    @media (max-width: 414px) {
+      @content;
+    }
+  }
+}
