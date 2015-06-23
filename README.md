@@ -4,7 +4,7 @@ Flexible Grid System 4 Scss Plus
 
 ##Install
 
-####[Bower](http://bower.io)
+###[Bower](http://bower.io)
 ```
 $ bower install flexiblegs-scss-plus --save
 ```
