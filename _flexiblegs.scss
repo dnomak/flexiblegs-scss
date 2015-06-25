@@ -1,4 +1,4 @@
-// Flexible Grid System 4 | Scss Plus | MIT License | flexible.gs
+// Flexible Grid System 4.0.1 | Scss Plus | MIT License | flexible.gs
 
 // wrap
 // @include wrap;
@@ -16,6 +16,9 @@
       min-height: 1px;
       font-size: 1rem;
       vertical-align: top;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
     }
   }
   @else {
@@ -34,23 +37,21 @@
 // @include flexbox;
 
 @mixin flexbox() {
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-content: flex-start;
-  align-content: flex-start;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-content: flex-start;
+  -ms-align-content: flex-start;
+  align-content: flex-start;
 }
 
 // col
@@ -76,9 +77,6 @@
     margin-left: -#{$gutter};
     margin-right: -#{$gutter};
     > * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
       padding-left: #{$gutter};
       padding-right: #{$gutter};
     }
@@ -95,6 +93,7 @@
 @mixin align($align: null) {
   @if $align == top {
     -webkit-align-items: flex-start;
+    -ms-align-items: flex-start;
     align-items: flex-start;
     > * {
       vertical-align: top;
@@ -102,6 +101,7 @@
   }
   @else if $align == middle {
     -webkit-align-items: center;
+    -ms-align-items: center;
     align-items: center;
     > * {
       vertical-align: middle;
@@ -109,6 +109,7 @@
   }
   @else if $align == bottom {
     -webkit-align-items: flex-end;
+    -ms-align-items: flex-end;
     align-items: flex-end;
     > * {
       vertical-align: bottom;
@@ -116,65 +117,64 @@
   }
   @else if $align == between {
     -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
     justify-content: space-between;
     -webkit-align-content: space-between;
+    -ms-align-content: space-between;
     align-content: space-between;
   }
   @else if $align == around {
     -webkit-justify-content: space-around;
+    -ms-justify-content: space-around;
     justify-content: space-around;
     -webkit-align-content: space-around;
+    -ms-align-content: space-around;
     align-content: space-around;
   }
   @else if $align == baseline {
     -webkit-align-items: baseline;
+    -ms-align-items: baseline;
     align-items: baseline;
   }
   @else if $align == center {
     -webkit-justify-content: center;
+    -ms-justify-content: center;
     justify-content: center;
     text-align: center;
   }
   @else if $align == left {
     -webkit-justify-content: flex-start;
+    -ms-justify-content: flex-start;
     justify-content: flex-start;
     text-align: left;
   }
   @else if $align == right {
     -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
     justify-content: flex-end;
     text-align: right;
   }
   @else if $align == first {
-    -webkit-box-ordinal-group: -1;
-    -moz-box-ordinal-group: -1;
     -ms-flex-order: -1;
     -webkit-order: -1;
     order: -1;
   }
   @else if $align == not-first {
-    -webkit-box-ordinal-group: 0;
-    -moz-box-ordinal-group: 0;
     -ms-flex-order: 0;
     -webkit-order: 0;
     order: 0;
   }
   @else if $align == last {
-    -webkit-box-ordinal-group: 1;
-    -moz-box-ordinal-group: 1;
     -ms-flex-order: 1;
     -webkit-order: 1;
     order: 1;
   }
   @else if $align == not-last {
-    -webkit-box-ordinal-group: 0;
-    -moz-box-ordinal-group: 0;
     -ms-flex-order: 0;
     -webkit-order: 0;
     order: 0;
   }
   @else if $align == reverse {
-    -webkit-box-direction: reverse;
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -183,7 +183,6 @@
     flex-wrap: wrap-reverse;
   }
   @else if $align == not-reverse {
-    -webkit-box-direction: normal;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;

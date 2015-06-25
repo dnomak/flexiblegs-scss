@@ -1,11 +1,11 @@
 {
   "name": "flexiblegs-scss-plus",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "homepage": "http://flexible.gs",
   "authors": [
     "@dnomak"
   ],
-  "description": "Flexible Grid System 4 Scss Plus",
+  "description": "Flexible Grid System Scss Plus",
   "main": "_flexiblegs.scss",
   "keywords": [
     "css",
