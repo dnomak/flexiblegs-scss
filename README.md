@@ -19,6 +19,9 @@ $ bower install flexiblegs-scss-plus --save
 - Flexible Grid System **CSS**
   - [https://github.com/flexiblegs/flexiblegs-css](https://github.com/flexiblegs/flexiblegs-css)
   - [http://codepen.io/dnomak/pen/KwWJpm](http://codepen.io/dnomak/pen/KwWJpm?editors=100)
+- Flexible Grid System **BEM CSS**
+  - [https://github.com/flexiblegs/flexiblegs-bem-css](https://github.com/flexiblegs/flexiblegs-bem-css)
+  - [http://codepen.io/dnomak/pen/wayPxJ](http://codepen.io/dnomak/pen/wayPxJ?editors=100)
 - ~~Flexible Grid System **Scss**~~
   - [~~https://github.com/flexiblegs/flexiblegs-scss~~](https://github.com/flexiblegs/flexiblegs-scss)
 - ~~Flexible Grid System **Sass**~~
