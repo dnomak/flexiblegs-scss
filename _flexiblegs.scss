@@ -1,8 +1,4 @@
-// Flexible Grid System 4.0.1 | Scss Plus | MIT License | flexible.gs
-
-// wrap
-// @include wrap;
-// @include wrap(col);
+// Flexible Grid System 5 | Scss Plus | MIT License | flexible.gs
 
 @mixin wrap($col: null) {
   @if $col == null {
@@ -20,6 +16,23 @@
       box-sizing: border-box;
     }
   }
+  @else if $col == flexbox {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-content: flex-start;
+    -ms-align-content: flex-start;
+    align-content: flex-start;
+  }
   @else {
     > * {
       @if $col == auto {
@@ -31,30 +44,6 @@
     }
   }
 }
-
-// flexbox
-// @include flexbox;
-
-@mixin flexbox() {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -webkit-align-content: flex-start;
-  -ms-align-content: flex-start;
-  align-content: flex-start;
-}
-
-// col
-// @include col(col,row);
 
 @mixin col($col: null, $row: null) {
   @if $col == hidden {
@@ -68,10 +57,7 @@
   }
 }
 
-// gutter
-// @include gutter(gutter,out);
-
-@mixin gutter($gutter: null, $out: null) {
+@mixin gutter($gutter: null, $outside: null) {
   @if $gutter {
     margin-left: -#{$gutter};
     margin-right: -#{$gutter};
@@ -80,14 +66,11 @@
       padding-right: #{$gutter};
     }
   }
-  @if $out {
+  @if $outside {
     margin-left: 0;
     margin-right: 0;
   }
 }
-
-// align
-// @include align(align);
 
 @mixin align($align: null) {
   @if $align == top {
@@ -190,11 +173,6 @@
     flex-wrap: wrap;
   }
 }
-
-// breakpoints
-// @include breakpoint(breakpoint) {
-//
-// }
 
 @mixin breakpoint($breakpoint) {
   @if $breakpoint == lg {
