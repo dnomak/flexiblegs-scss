@@ -1,16 +1,20 @@
-// Flexible Grid System 5 | Scss Plus | MIT License | flexible.gs
+// Flexible Grid System 5.2.0 | Scss Plus | MIT License | flexible.gs
 
 @mixin wrap($col: null) {
   @if $col == null {
     display: block;
+    width: 100%;
     font-size: 0;
-    text-align: center;
+    text-align: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     > * {
       display: inline-block;
       width: 100%;
       min-height: 1px;
       font-size: 1rem;
-      vertical-align: top;
+      vertical-align: middle;
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -26,12 +30,29 @@
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
-    -webkit-align-content: flex-start;
-    -ms-align-content: flex-start;
-    align-content: flex-start;
+    -webkit-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-content: center;
+    -ms-align-content: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+  }
+  @else if $col == table {
+    display: table;
+    table-layout: fixed;
+    > * {
+      display: table-cell;
+    }
+  }
+  @else if $col == not-table {
+    display: block;
+    table-layout: auto;
+    > * {
+      display: inline-block;
+    }
   }
   @else {
     > * {
@@ -59,16 +80,22 @@
 
 @mixin gutter($gutter: null, $outside: null) {
   @if $gutter {
-    margin-left: -#{$gutter};
-    margin-right: -#{$gutter};
+    width: calc(100% + #{$gutter + $gutter});
+    margin-left: -$gutter / 2;
+    margin-right: -$gutter / 2;
+    padding-left: 0;
+    padding-right: 0;
     > * {
-      padding-left: #{$gutter};
-      padding-right: #{$gutter};
+      padding-left: $gutter / 2;
+      padding-right: $gutter / 2;
     }
   }
   @if $outside {
+    width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
   }
 }
 
@@ -180,18 +207,13 @@
       @content;
     }
   }
-  @if $breakpoint == md {
+  @else if $breakpoint == md {
     @media (max-width: 768px) {
       @content;
     }
   }
-  @if $breakpoint == sm {
+  @else if $breakpoint == sm {
     @media (max-width: 667px) {
-      @content;
-    }
-  }
-  @if $breakpoint == xs {
-    @media (max-width: 414px) {
       @content;
     }
   }
