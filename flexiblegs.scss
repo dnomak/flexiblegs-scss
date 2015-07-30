@@ -1,4 +1,4 @@
-// Flexible Grid System 5.2.0 | Scss Plus | MIT License | flexible.gs
+// Flexible Grid System 5.3.0 | Scss Plus | MIT License | flexible.gs
 
 @mixin wrap($col: null) {
   @if $col == null {
@@ -20,6 +20,28 @@
       box-sizing: border-box;
     }
   }
+  @else if $col == normal {
+    display: block;
+    table-layout: auto;
+    -webkit-flex-direction: initial;
+    -ms-flex-direction: initial;
+    flex-direction: initial;
+    -webkit-flex-wrap: initial;
+    -ms-flex-wrap: initial;
+    flex-wrap: initial;
+    -webkit-justify-content: initial;
+    -ms-justify-content: initial;
+    justify-content: initial;
+    -webkit-align-content: initial;
+    -ms-align-content: initial;
+    align-content: initial;
+    -webkit-align-items: initial;
+    -ms-align-items: initial;
+    align-items: initial;
+    > * {
+      display: inline-block;
+    }
+  }
   @else if $col == flexbox {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -39,19 +61,15 @@
     -webkit-align-items: center;
     -ms-align-items: center;
     align-items: center;
+    > * {
+      display: inline-block;
+    }
   }
   @else if $col == table {
     display: table;
     table-layout: fixed;
     > * {
       display: table-cell;
-    }
-  }
-  @else if $col == not-table {
-    display: block;
-    table-layout: auto;
-    > * {
-      display: inline-block;
     }
   }
   @else {
