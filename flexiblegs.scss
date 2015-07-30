@@ -42,10 +42,33 @@
       display: inline-block;
     }
   }
+  @else if $col == table {
+    display: table;
+    table-layout: fixed;
+    -webkit-flex-direction: initial;
+    -ms-flex-direction: initial;
+    flex-direction: initial;
+    -webkit-flex-wrap: initial;
+    -ms-flex-wrap: initial;
+    flex-wrap: initial;
+    -webkit-justify-content: initial;
+    -ms-justify-content: initial;
+    justify-content: initial;
+    -webkit-align-content: initial;
+    -ms-align-content: initial;
+    align-content: initial;
+    -webkit-align-items: initial;
+    -ms-align-items: initial;
+    align-items: initial;
+    > * {
+      display: table-cell;
+    }
+  }
   @else if $col == flexbox {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    table-layout: auto;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -63,13 +86,6 @@
     align-items: center;
     > * {
       display: inline-block;
-    }
-  }
-  @else if $col == table {
-    display: table;
-    table-layout: fixed;
-    > * {
-      display: table-cell;
     }
   }
   @else {
