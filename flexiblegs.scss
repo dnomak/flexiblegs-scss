@@ -228,18 +228,18 @@
   }
 }
 
-@mixin breakpoint($breakpoint) {
-  @if $breakpoint == lg {
+@mixin breakpoint($variable1) {
+  @if $variable1 == lg {
     @media (max-width: 1024px) {
       @content;
     }
   }
-  @else if $breakpoint == md {
+  @else if $variable1 == md {
     @media (max-width: 768px) {
       @content;
     }
   }
-  @else if $breakpoint == sm {
+  @else if $variable1 == sm {
     @media (max-width: 667px) {
       @content;
     }
