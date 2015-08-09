@@ -1,7 +1,7 @@
-// Flexible Grid System 5.3.0 | Scss Plus | MIT License | flexible.gs
+// Flexible Grid System 5.3.1 | Scss Plus | MIT License | flexible.gs
 
-@mixin wrap($col: null) {
-  @if $col == null {
+@mixin wrap($variable1: null, $variable2: null) {
+  @if $variable1 == null {
     display: block;
     width: 100%;
     font-size: 0;
@@ -9,18 +9,8 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    > * {
-      display: inline-block;
-      width: 100%;
-      min-height: 1px;
-      font-size: 1rem;
-      vertical-align: middle;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
   }
-  @else if $col == normal {
+  @else if $variable1 == normal {
     display: block;
     table-layout: auto;
     -webkit-flex-direction: initial;
@@ -42,7 +32,7 @@
       display: inline-block;
     }
   }
-  @else if $col == table {
+  @else if $variable1 == table {
     display: table;
     table-layout: fixed;
     -webkit-flex-direction: initial;
@@ -64,7 +54,7 @@
       display: table-cell;
     }
   }
-  @else if $col == flexbox {
+  @else if $variable1 == flexbox {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -88,53 +78,25 @@
       display: inline-block;
     }
   }
-  @else {
-    > * {
-      @if $col == auto {
-        width: auto;
-      }
-      @else {
-        width: 100% / $col;
-      }
-    }
-  }
-}
-
-@mixin col($col: null, $row: null) {
-  @if $col == hidden {
-    display: none;
-  }
-  @else if $col == not-hidden {
-    display: inline-block;
-  }
-  @else {
-    width: 100% / $row * $col;
-  }
-}
-
-@mixin gutter($gutter: null, $outside: null) {
-  @if $gutter {
-    width: calc(100% + #{$gutter + $gutter});
-    margin-left: -$gutter / 2;
-    margin-right: -$gutter / 2;
+  @else if $variable1 == gutter {
+    width: calc(100% + #{$variable2 + $variable2});
+    margin-left: -$variable2 / 2;
+    margin-right: -$variable2 / 2;
     padding-left: 0;
     padding-right: 0;
     > * {
-      padding-left: $gutter / 2;
-      padding-right: $gutter / 2;
+      padding-left: $variable2 / 2;
+      padding-right: $variable2 / 2;
     }
   }
-  @if $outside {
+  @else if $variable1 == outside {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding-left: $gutter / 2;
-    padding-right: $gutter / 2;
+    padding-left: $variable2 / 2;
+    padding-right: $variable2 / 2;
   }
-}
-
-@mixin align($align: null) {
-  @if $align == top {
+  @else if $variable1 == top {
     -webkit-align-items: flex-start;
     -ms-align-items: flex-start;
     align-items: flex-start;
@@ -142,7 +104,7 @@
       vertical-align: top;
     }
   }
-  @else if $align == middle {
+  @else if $variable1 == middle {
     -webkit-align-items: center;
     -ms-align-items: center;
     align-items: center;
@@ -150,7 +112,7 @@
       vertical-align: middle;
     }
   }
-  @else if $align == bottom {
+  @else if $variable1 == bottom {
     -webkit-align-items: flex-end;
     -ms-align-items: flex-end;
     align-items: flex-end;
@@ -158,7 +120,7 @@
       vertical-align: bottom;
     }
   }
-  @else if $align == between {
+  @else if $variable1 == between {
     -webkit-justify-content: space-between;
     -ms-justify-content: space-between;
     justify-content: space-between;
@@ -166,7 +128,7 @@
     -ms-align-content: space-between;
     align-content: space-between;
   }
-  @else if $align == around {
+  @else if $variable1 == around {
     -webkit-justify-content: space-around;
     -ms-justify-content: space-around;
     justify-content: space-around;
@@ -174,50 +136,30 @@
     -ms-align-content: space-around;
     align-content: space-around;
   }
-  @else if $align == baseline {
+  @else if $variable1 == baseline {
     -webkit-align-items: baseline;
     -ms-align-items: baseline;
     align-items: baseline;
   }
-  @else if $align == center {
+  @else if $variable1 == center {
     -webkit-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
     text-align: center;
   }
-  @else if $align == left {
+  @else if $variable1 == left {
     -webkit-justify-content: flex-start;
     -ms-justify-content: flex-start;
     justify-content: flex-start;
     text-align: left;
   }
-  @else if $align == right {
+  @else if $variable1 == right {
     -webkit-justify-content: flex-end;
     -ms-justify-content: flex-end;
     justify-content: flex-end;
     text-align: right;
   }
-  @else if $align == first {
-    -ms-flex-order: -1;
-    -webkit-order: -1;
-    order: -1;
-  }
-  @else if $align == not-first {
-    -ms-flex-order: 0;
-    -webkit-order: 0;
-    order: 0;
-  }
-  @else if $align == last {
-    -ms-flex-order: 1;
-    -webkit-order: 1;
-    order: 1;
-  }
-  @else if $align == not-last {
-    -ms-flex-order: 0;
-    -webkit-order: 0;
-    order: 0;
-  }
-  @else if $align == reverse {
+  @else if $variable1 == reverse {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -225,13 +167,64 @@
     -ms-flex-wrap: wrap-reverse;
     flex-wrap: wrap-reverse;
   }
-  @else if $align == not-reverse {
+  @else if $variable1 == not-reverse {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+  }
+  @else {
+    > * {
+      @if $variable1 == auto {
+        width: auto;
+      }
+      @else {
+        width: 100% / $variable1;
+      }
+    }
+  }
+}
+
+@mixin col($variable1: null, $variable2: null) {
+  @if $variable1 == null {
+    display: inline-block;
+    min-height: 1px;
+    font-size: 1rem;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  @else if $variable1 == hidden {
+    display: none;
+  }
+  @else if $variable1 == not-hidden {
+    display: inline-block;
+  }
+  @else if $variable1 == first {
+    -ms-flex-order: -1;
+    -webkit-order: -1;
+    order: -1;
+  }
+  @else if $variable1 == not-first {
+    -ms-flex-order: 0;
+    -webkit-order: 0;
+    order: 0;
+  }
+  @else if $variable1 == last {
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+  }
+  @else if $variable1 == not-last {
+    -ms-flex-order: 0;
+    -webkit-order: 0;
+    order: 0;
+  }
+  @else {
+    width: 100% / $variable2 * $variable1;
   }
 }
 
