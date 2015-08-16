@@ -1,4 +1,4 @@
-// Flexible Grid System 5.3.1 | Scss Plus | MIT License | flexible.gs
+// Flexible Grid System 5.3.2 | Scss Plus | MIT License | flexible.gs
 
 @mixin wrap($variable1: null, $variable2: null) {
   @if $variable1 == null {
@@ -28,6 +28,9 @@
     -webkit-align-items: initial;
     -ms-align-items: initial;
     align-items: initial;
+    -webkit-column-count: auto;
+    -moz-column-count: auto;
+    column-count: auto;
     > * {
       display: inline-block;
     }
@@ -50,6 +53,9 @@
     -webkit-align-items: initial;
     -ms-align-items: initial;
     align-items: initial;
+    -webkit-column-count: auto;
+    -moz-column-count: auto;
+    column-count: auto;
     > * {
       display: table-cell;
     }
@@ -74,9 +80,17 @@
     -webkit-align-items: center;
     -ms-align-items: center;
     align-items: center;
+    -webkit-column-count: auto;
+    -moz-column-count: auto;
+    column-count: auto;
     > * {
       display: inline-block;
     }
+  }
+  @else if $variable1 == masonry {
+    -webkit-column-count: $variable2;
+    -moz-column-count: $variable2;
+    column-count: $variable2;
   }
   @else if $variable1 == gutter {
     width: calc(100% + #{$variable2 + $variable2});
