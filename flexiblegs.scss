@@ -1,10 +1,11 @@
-// Flexible Grid System 5.3.2 | Scss Plus | MIT License | flexible.gs
+/*! Flexible Grid System 5.3.3 | Scss Plus | MIT License | flexible.gs */
 
 @mixin wrap($variable1: null, $variable2: null) {
   @if $variable1 == null {
     display: block;
     width: 100%;
     font-size: 0;
+    letter-spacing: 0;
     text-align: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
