@@ -1,6 +1,6 @@
 {
   "name": "flexiblegs-scss-plus",
-  "version": "5.3.3",
+  "version": "5.3.4",
   "homepage": "http://flexible.gs",
   "description": "Flexible Grid System Scss Plus",
   "keywords": [
@@ -14,7 +14,7 @@
     "flexbox",
     "flex"
   ],
-  "main": "flexiblegs.scss",
+  "main": "flexiblegs-plus.scss",
   "authors": [
     "@dnomak"
   ],

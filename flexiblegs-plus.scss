@@ -1,7 +1,7 @@
-/*! Flexible Grid System 5.3.3 | Scss Plus | MIT License | flexible.gs */
+/*! Flexible Grid System 5.3.4 | Scss Plus | MIT License | flexible.gs */
 
-@mixin wrap($variable1: null, $variable2: null) {
-  @if $variable1 == null {
+@mixin wrap($prop: null, $val: null) {
+  @if $prop == null {
     display: block;
     width: 100%;
     font-size: 0;
@@ -11,32 +11,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  @else if $variable1 == normal {
-    display: block;
-    table-layout: auto;
-    -webkit-flex-direction: initial;
-    -ms-flex-direction: initial;
-    flex-direction: initial;
-    -webkit-flex-wrap: initial;
-    -ms-flex-wrap: initial;
-    flex-wrap: initial;
-    -webkit-justify-content: initial;
-    -ms-justify-content: initial;
-    justify-content: initial;
-    -webkit-align-content: initial;
-    -ms-align-content: initial;
-    align-content: initial;
-    -webkit-align-items: initial;
-    -ms-align-items: initial;
-    align-items: initial;
-    -webkit-column-count: auto;
-    -moz-column-count: auto;
-    column-count: auto;
-    > * {
-      display: inline-block;
-    }
-  }
-  @else if $variable1 == table {
+  @else if $prop == table {
     display: table;
     table-layout: fixed;
     -webkit-flex-direction: initial;
@@ -61,7 +36,7 @@
       display: table-cell;
     }
   }
-  @else if $variable1 == flexbox {
+  @else if $prop == flexbox {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -88,30 +63,50 @@
       display: inline-block;
     }
   }
-  @else if $variable1 == masonry {
-    -webkit-column-count: $variable2;
-    -moz-column-count: $variable2;
-    column-count: $variable2;
-  }
-  @else if $variable1 == gutter {
-    width: calc(100% + #{$variable2 + $variable2});
-    margin-left: -$variable2 / 2;
-    margin-right: -$variable2 / 2;
-    padding-left: 0;
-    padding-right: 0;
+  @else if $prop == normal {
+    display: block;
+    table-layout: auto;
+    -webkit-flex-direction: initial;
+    -ms-flex-direction: initial;
+    flex-direction: initial;
+    -webkit-flex-wrap: initial;
+    -ms-flex-wrap: initial;
+    flex-wrap: initial;
+    -webkit-justify-content: initial;
+    -ms-justify-content: initial;
+    justify-content: initial;
+    -webkit-align-content: initial;
+    -ms-align-content: initial;
+    align-content: initial;
+    -webkit-align-items: initial;
+    -ms-align-items: initial;
+    align-items: initial;
+    -webkit-column-count: auto;
+    -moz-column-count: auto;
+    column-count: auto;
     > * {
-      padding-left: $variable2 / 2;
-      padding-right: $variable2 / 2;
+      display: inline-block;
     }
   }
-  @else if $variable1 == outside {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: $variable2 / 2;
-    padding-right: $variable2 / 2;
+  @else if $prop == left {
+    -webkit-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    justify-content: flex-start;
+    text-align: left;
   }
-  @else if $variable1 == top {
+  @else if $prop == center {
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  @else if $prop == right {
+    -webkit-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+  }
+  @else if $prop == top {
     -webkit-align-items: flex-start;
     -ms-align-items: flex-start;
     align-items: flex-start;
@@ -119,7 +114,7 @@
       vertical-align: top;
     }
   }
-  @else if $variable1 == middle {
+  @else if $prop == middle {
     -webkit-align-items: center;
     -ms-align-items: center;
     align-items: center;
@@ -127,7 +122,7 @@
       vertical-align: middle;
     }
   }
-  @else if $variable1 == bottom {
+  @else if $prop == bottom {
     -webkit-align-items: flex-end;
     -ms-align-items: flex-end;
     align-items: flex-end;
@@ -135,7 +130,7 @@
       vertical-align: bottom;
     }
   }
-  @else if $variable1 == between {
+  @else if $prop == between {
     -webkit-justify-content: space-between;
     -ms-justify-content: space-between;
     justify-content: space-between;
@@ -143,7 +138,7 @@
     -ms-align-content: space-between;
     align-content: space-between;
   }
-  @else if $variable1 == around {
+  @else if $prop == around {
     -webkit-justify-content: space-around;
     -ms-justify-content: space-around;
     justify-content: space-around;
@@ -151,30 +146,12 @@
     -ms-align-content: space-around;
     align-content: space-around;
   }
-  @else if $variable1 == baseline {
+  @else if $prop == baseline {
     -webkit-align-items: baseline;
     -ms-align-items: baseline;
     align-items: baseline;
   }
-  @else if $variable1 == center {
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
-    text-align: center;
-  }
-  @else if $variable1 == left {
-    -webkit-justify-content: flex-start;
-    -ms-justify-content: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-  }
-  @else if $variable1 == right {
-    -webkit-justify-content: flex-end;
-    -ms-justify-content: flex-end;
-    justify-content: flex-end;
-    text-align: right;
-  }
-  @else if $variable1 == reverse {
+  @else if $prop == reverse {
     -webkit-flex-direction: row-reverse;
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
@@ -182,7 +159,7 @@
     -ms-flex-wrap: wrap-reverse;
     flex-wrap: wrap-reverse;
   }
-  @else if $variable1 == not-reverse {
+  @else if $prop == not-reverse {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
@@ -190,20 +167,43 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
+  @else if $prop == gutter {
+    width: calc(100% + #{$val}#{"px"});
+    margin-left: -#{$val / 2}#{"px"};
+    margin-right: -#{$val / 2}#{"px"};
+    padding-left: 0;
+    padding-right: 0;
+    > * {
+      padding-left: #{$val / 2}#{"px"};
+      padding-right: #{$val / 2}#{"px"};
+    }
+  }
+  @else if $prop == outside {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: #{$val / 2}#{"px"};
+    padding-right: #{$val / 2}#{"px"};
+  }
+  @else if $prop == masonry {
+    -webkit-column-count: $val;
+    -moz-column-count: $val;
+    column-count: $val;
+  }
   @else {
     > * {
-      @if $variable1 == auto {
+      @if $prop == auto {
         width: auto;
       }
       @else {
-        width: 100% / $variable1;
+        width: #{100% / $prop};
       }
     }
   }
 }
 
-@mixin col($variable1: null, $variable2: null) {
-  @if $variable1 == null {
+@mixin col($prop: null, $val: null) {
+  @if $prop == null {
     display: inline-block;
     min-height: 1px;
     font-size: 1rem;
@@ -212,51 +212,33 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  @else if $variable1 == hidden {
+  @else if $prop == hidden {
     display: none;
   }
-  @else if $variable1 == not-hidden {
+  @else if $prop == not-hidden {
     display: inline-block;
   }
-  @else if $variable1 == first {
+  @else if $prop == first {
     -ms-flex-order: -1;
     -webkit-order: -1;
     order: -1;
   }
-  @else if $variable1 == not-first {
+  @else if $prop == not-first {
     -ms-flex-order: 0;
     -webkit-order: 0;
     order: 0;
   }
-  @else if $variable1 == last {
+  @else if $prop == last {
     -ms-flex-order: 1;
     -webkit-order: 1;
     order: 1;
   }
-  @else if $variable1 == not-last {
+  @else if $prop == not-last {
     -ms-flex-order: 0;
     -webkit-order: 0;
     order: 0;
   }
   @else {
-    width: 100% / $variable2 * $variable1;
-  }
-}
-
-@mixin breakpoint($variable1) {
-  @if $variable1 == lg {
-    @media (max-width: 1024px) {
-      @content;
-    }
-  }
-  @else if $variable1 == md {
-    @media (max-width: 768px) {
-      @content;
-    }
-  }
-  @else if $variable1 == sm {
-    @media (max-width: 667px) {
-      @content;
-    }
+    width: #{100% / $val * $prop};
   }
 }

@@ -4,9 +4,9 @@ Flexible Grid System Scss Plus
 
 ## Install
 
-### [Download](https://raw.githubusercontent.com/flexiblegs/flexiblegs-scss-plus/master/flexiblegs.scss)
+### [Download](https://raw.githubusercontent.com/flexiblegs/flexiblegs-scss-plus/master/flexiblegs-plus.scss)
 ```scss
-@import "flexiblegs";
+@import "flexiblegs-plus";
 ```
 
 ### [Bower](http://bower.io)
