@@ -9,6 +9,11 @@ Flexible Grid System Scss Plus
 @import "flexiblegs-plus";
 ```
 
+### [npm](https://www.npmjs.com/package/flexiblegs-scss-plus)
+```
+$ npm install --save flexiblegs-scss-plus
+```
+
 ### [Bower](http://bower.io)
 ```
 $ bower install --save flexiblegs-scss-plus
