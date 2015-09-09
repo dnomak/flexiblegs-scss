@@ -1,4 +1,4 @@
-/*! Flexible Grid System 5.3.4 | Scss Plus | MIT License | flexible.gs */
+/*! Flexible Grid System 5.4.0 | Scss Plus | MIT License | flexible.gs */
 
 @mixin wrap($prop: null, $val: null) {
   @if $prop == null {
@@ -10,6 +10,9 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    > * {
+      display: inline-block;
+    }
   }
   @else if $prop == table {
     display: table;
@@ -204,13 +207,15 @@
 
 @mixin col($prop: null, $val: null) {
   @if $prop == null {
-    display: inline-block;
     min-height: 1px;
     font-size: 1rem;
     vertical-align: middle;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+  }
+  @else if $prop == width {
+    width: #{$val}#{"px"};
   }
   @else if $prop == hidden {
     display: none;
