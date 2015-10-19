@@ -4,9 +4,9 @@ Flexible Grid System Scss Plus
 
 ## Install
 
-### [Download](https://raw.githubusercontent.com/flexiblegs/flexiblegs-scss-plus/master/flexiblegs-plus.scss)
+### [Download](https://raw.githubusercontent.com/flexiblegs/flexiblegs-scss-plus/master/flexiblegs-scss-plus.scss) the file and add the project as follows.
 ```scss
-@import "flexiblegs-plus";
+@import "flexiblegs-scss-plus";
 ```
 
 ### [npm](https://www.npmjs.com/package/flexiblegs-scss-plus)
@@ -14,7 +14,7 @@ Flexible Grid System Scss Plus
 $ npm install --save flexiblegs-scss-plus
 ```
 
-### [Bower](http://bower.io)
+### [bower](http://bower.io/search/?q=flexiblegs-scss-plus)
 ```
 $ bower install --save flexiblegs-scss-plus
 ```
