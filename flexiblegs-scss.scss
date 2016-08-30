@@ -1,4 +1,4 @@
-/*! Flexible Grid System 5.5.2 | Scss | MIT License | flexible.gs */
+/*! Flexible Grid System 5.5.3 | Scss | MIT License | flexible.gs */
 
 @mixin wrap($prop: null, $val: null) {
   @if $prop == null {
@@ -12,6 +12,7 @@
     box-sizing: border-box;
     > * {
       display: inline-block;
+      vertical-align: top;
     }
   }
   @else if $prop == "table" {
