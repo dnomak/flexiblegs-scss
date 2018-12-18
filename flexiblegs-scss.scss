@@ -1,4 +1,4 @@
-/*! Flexible Grid System 5.5.3 | Scss | MIT License | flexible.gs */
+/*! Flexible Grid System 5.6.0 | Scss | MIT License | dnomak.com/flexiblegs */
 
 @mixin wrap($prop: null, $val: null) {
   @if $prop == null {
@@ -134,6 +134,14 @@
       vertical-align: bottom;
     }
   }
+  @else if $prop == "stretch" {
+    -webkit-align-content: stretch;
+    -ms-align-content: stretch;
+    align-content: stretch;
+    -webkit-align-items: stretch;
+    -ms-align-items: stretch;
+    align-items: stretch;
+  }
   @else if $prop == "between" {
     -webkit-justify-content: space-between;
     -ms-justify-content: space-between;
@@ -188,11 +196,6 @@
     margin-right: 0;
     padding-left: #{$val / 2}#{"px"};
     padding-right: #{$val / 2}#{"px"};
-  }
-  @else if $prop == "masonry" {
-    -webkit-column-count: $val;
-    -moz-column-count: $val;
-    column-count: $val;
   }
   @else {
     > * {
